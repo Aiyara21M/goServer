@@ -49,13 +49,13 @@ func ConnectAllPostgresDBs() (map[string]PostgresConnectorInterface, error) {
 
 	for name, dsn := range dsns {
 		if dsn == "" {
-			fmt.Printf("⚠️ DSN for %s is empty. Skipping...\n", name)
+			fmt.Printf("DSN for %s is empty. Skipping...\n", name)
 			continue
 		}
 
 		conn, err := NewPostgresConnector(dsn)
 		if err != nil {
-			fmt.Printf("❌ Failed to connect to %s: %v\n", name, err)
+			fmt.Printf("Failed to connect to %s: %v\n", name, err)
 			continue
 		}
 		connectors[name] = conn
